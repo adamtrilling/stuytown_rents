@@ -11,7 +11,8 @@ defmodule StuytownRents.Application do
       # Starts a worker by calling: StuytownRents.Worker.start_link(arg)
       # {StuytownRents.Worker, arg},
       StuytownRents.Repo,
-      StuytownRents.Scheduler
+      StuytownRents.Scheduler,
+      {Plug.Adapters.Cowboy2, scheme: :http, plug: StuytownRents.Router}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

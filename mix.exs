@@ -14,7 +14,7 @@ defmodule StuytownRents.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: [:logger, :cowboy, :plug],
       mod: {StuytownRents.Application, []}
     ]
   end
@@ -22,9 +22,11 @@ defmodule StuytownRents.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:cowboy, "~> 2.1"},
       {:ecto, "~> 2.0"},
       {:floki, "~> 0.19.0"},
       {:httpoison, "~> 0.13"},
+      {:plug, "1.5.0-rc.0"},
       {:postgrex, "~> 0.11"},
       {:private, "> 0.0.0"},
       {:quantum, ">= 2.2.1"},
