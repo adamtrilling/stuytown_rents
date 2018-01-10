@@ -1,6 +1,6 @@
-defmodule StuytownRents.BuildingTest do
+defmodule StuytownRents.Models.BuildingTest do
     use ExUnit.Case
-    import StuytownRents.Building
+    import StuytownRents.Models.Building
     
     describe "generate_address/2" do
         test "correctly determines the oval" do

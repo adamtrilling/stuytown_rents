@@ -1,16 +1,16 @@
-defmodule StuytownRents.Building do
+defmodule StuytownRents.Models.Building do
     use Ecto.Schema
     use Private
 
     schema "buildings" do
-        has_many :units, StuytownRents.Unit
+        has_many :units, StuytownRents.Models.Unit
         field :code, :string
         field :address, :string
         field :property, :string
     end
 
     def find_or_create(code) do
-        case StuytownRents.Repo.get_by(StuytownRents.Building, code: code) do
+        case StuytownRents.Repo.get_by(StuytownRents.Models.Building, code: code) do
             nil -> create_building(code)                
             result -> result
         end
@@ -52,7 +52,7 @@ defmodule StuytownRents.Building do
         defp create_building(code) do
             {property, number} = parse_code(code)
 
-            building = %StuytownRents.Building{
+            building = %StuytownRents.Models.Building{
                 code: code,
                 property: property,
                 address: generate_address(property, number)

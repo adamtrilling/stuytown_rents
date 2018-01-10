@@ -8,14 +8,14 @@ defmodule StuytownRents.RentLoader do
 
         {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get(url)
     
-        StuytownRents.Repo.insert(%StuytownRents.HtmlSnapshot{
+        StuytownRents.Repo.insert(%StuytownRents.Models.HtmlSnapshot{
             html: body,
             availability_date: Date.utc_today()
         })
     end
 
     def load() do
-        query = from s in StuytownRents.HtmlSnapshot, 
+        query = from s in StuytownRents.Models.HtmlSnapshot, 
             where: s.processed == false
         Enum.each(query |> StuytownRents.Repo.all, fn(snapshot) ->
             process_snapshot(snapshot)
@@ -43,10 +43,10 @@ defmodule StuytownRents.RentLoader do
                 "data-beds" => bedrooms
               } = unit
             
-              building = StuytownRents.Building.find_or_create(building)
-              unit = StuytownRents.Unit.find_or_create(building, floor, line, size, bedrooms)
+              building = StuytownRents.Models.Building.find_or_create(building)
+              unit = StuytownRents.Models.Unit.find_or_create(building, floor, line, size, bedrooms)
             
-              StuytownRents.Repo.insert(%StuytownRents.Listing{
+              StuytownRents.Repo.insert(%StuytownRents.Models.Listing{
                 unit: unit, price: elem(Integer.parse(price), 0)
               })
             end)

@@ -17,9 +17,13 @@ defmodule StuytownRents.Repo.Migrations.CreateListings do
       add :line, :string
       add :size, :integer
       add :bedrooms, :float
+      add :flex, :boolean
+      add :trim, :string
     end
 
     create index(:units, [:bedrooms])
+    create index(:units, [:bedrooms, :flex])
+    create index(:units, [:trim])
 
     create table(:listings) do
       add :unit_id, references(:listings)

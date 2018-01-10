@@ -1,4 +1,4 @@
-defmodule StuytownRents.HtmlSnapshot do
+defmodule StuytownRents.Models.HtmlSnapshot do
     use Ecto.Schema
 
     schema "html_snapshots" do
