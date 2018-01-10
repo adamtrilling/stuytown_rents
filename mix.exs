@@ -26,7 +26,9 @@ defmodule StuytownRents.Mixfile do
       {:floki, "~> 0.19.0"},
       {:httpoison, "~> 0.13"},
       {:postgrex, "~> 0.11"},
-      {:private, "> 0.0.0"}
+      {:private, "> 0.0.0"},
+      {:quantum, ">= 2.2.1"},
+      {:timex, "~> 3.0"}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]

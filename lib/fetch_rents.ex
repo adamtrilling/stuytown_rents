@@ -50,6 +50,10 @@ defmodule StuytownRents.RentLoader do
                 unit: unit, price: elem(Integer.parse(price), 0)
               })
             end)
+
+            StuytownRents.Repo.update(Ecto.Changeset.change(
+                snapshot, processed: true
+            ))
         end
     end
 end

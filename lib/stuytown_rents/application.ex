@@ -10,7 +10,8 @@ defmodule StuytownRents.Application do
     children = [
       # Starts a worker by calling: StuytownRents.Worker.start_link(arg)
       # {StuytownRents.Worker, arg},
-      StuytownRents.Repo
+      StuytownRents.Repo,
+      StuytownRents.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

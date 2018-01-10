@@ -11,6 +11,12 @@ config :stuytown_rents, StuytownRents.Repo,
   password: "pass",
   hostname: "localhost"
 
+config :stuytown_rents, StuytownRents.Scheduler,
+  global: true,
+  timezone: "America/New_York",
+  jobs: [
+    {"0 0,12 * * *", {StuytownRents.RentLoader, :fetch_and_load, []}},
+  ]
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
