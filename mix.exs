@@ -22,11 +22,14 @@ defmodule StuytownRents.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:absinthe_ecto, "~> 0.1"},
+      {:absinthe_plug, "~> 1.4"},
       {:cowboy, "~> 2.1"},
       {:ecto, "~> 2.0"},
       {:floki, "~> 0.19.0"},
       {:httpoison, "~> 0.13"},
-      {:plug, "1.5.0-rc.0"},
+      {:plug, "1.5.0-rc.0", override: true},
+      {:poison, "~> 3.0.0"},
       {:postgrex, "~> 0.11"},
       {:private, "> 0.0.0"},
       {:quantum, ">= 2.2.1"},
